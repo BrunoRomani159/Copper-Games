@@ -1,0 +1,49 @@
+CAPAS E ARTES PROMOCIONAIS — 22 JOGOS
+Gerado em 26/10/2026
+
+CONTEÚDO
+- 22 pastas, uma por jogo.
+- 3 imagens por jogo (66 imagens no total).
+- Formatos JPG (as capas verticais têm 600x900; as artes promocionais do Steam têm 1920x620; os headers têm 460x215).
+
+ESTRUTURA PADRÃO
+  01_capa.jpg ............... capa vertical
+  02_arte_promocional.jpg ... arte promocional horizontal
+  03_capa_horizontal.jpg .... capsule/header do jogo
+
+OBSERVAÇÕES POR JOGO
+- AION 2 e WARDOGS não têm capa vertical oficial no Steam. Foram usados o header/capsule oficial, uma arte promocional e uma screenshot oficial em alta resolução.
+- FiveM não está no Steam. Foram usados uma capa do SteamGridDB, a arte de fundo oficial do site fivem.net e uma arte promocional do FiveM/GTA V.
+- TBH: Task Bar Hero usa uma capa vertical do SteamGridDB, a library hero do Steam e o header oficial.
+
+LISTA DE JOGOS
+01 - Counter-Strike 2
+02 - Dota 2
+03 - PUBG: BATTLEGROUNDS
+04 - AION 2
+05 - Apex Legends
+06 - Call of Duty
+07 - Deadlock
+08 - Bongo Cat
+09 - WARDOGS
+10 - Cyberpunk 2077
+11 - FiveM
+12 - Wallpaper Engine
+13 - Delta Force
+14 - Rust
+15 - War Thunder
+16 - Stardew Valley
+17 - Slay the Spire 2
+18 - Team Fortress 2
+19 - Valheim
+20 - Warframe
+21 - Enshrouded
+22 - TBH: Task Bar Hero
+
+FONTES
+- Steam CDN / Steam Store: capas, capsules, library heroes e screenshots oficiais.
+- SteamGridDB: capas comunitárias de FiveM e TBH: Task Bar Hero.
+- fivem.net: arte de fundo oficial do FiveM.
+
+CRÉDITOS
+As imagens pertencem aos respectivos detentores de direitos e são reunidas aqui para uso pessoal/editorial. Este pacote não tem vínculo oficial com as desenvolvedoras, publicadoras, Steam, SteamGridDB ou Cfx.re.
