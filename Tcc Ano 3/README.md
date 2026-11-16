@@ -1,4 +1,4 @@
-# Cobre — centro de jogos (React puro + Express, SEM banco de dados)
+# Cooper Games — centro de jogos (React puro + Express, SEM banco de dados)
 
 React 18 carregado direto no navegador (sem Vite, sem Webpack, sem build).
 O Express serve o site e a API juntos. Os jogos ficam em memória (array), não precisa de MongoDB.
