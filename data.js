@@ -53,13 +53,13 @@ window.GAMES = [
 // Para encerrar uma promoção, mude "endsAt" ou apague o bloco.
 window.PROMOS = [
   { id: 'flash', name: 'Relâmpago 50%', tagline: 'Gigantes do Steam pela metade do preço. Só até segunda!',
-    discount: 50, endsAt: '2026-11-24T23:59:59-03:00', color: '#c1121f',
+    discount: 50, endsAt: '2026-12-25T23:59:59-03:00', color: '#c1121f',
     match: g => ['s6', 's27', 's37', 's40'].includes(g._id) },
   { id: 'bf', name: 'Esquenta Black Friday', tagline: 'RPGs e mundos épicos com 40% de desconto.',
-    discount: 40, endsAt: '2026-11-30T23:59:59-03:00', color: '#73030D',
+    discount: 40, endsAt: '2026-12-30T23:59:59-03:00', color: '#73030D',
     match: g => g.genre === 'RPG' && g.price > 0 },
   { id: 'surv', name: 'Semana da Sobrevivência', tagline: 'Construa, cace e resista: 30% off em todos os jogos do gênero.',
-    discount: 30, endsAt: '2026-11-28T23:59:59-03:00', color: '#4a5d23',
+    discount: 30, endsAt: '2026-12-28T23:59:59-03:00', color: '#4a5d23',
     match: g => g.genre === 'Sobrevivência' && g.price > 0 },
   { id: 'pechincha', name: 'Pechincha até R$ 30', tagline: 'Joias baratinhas ficam ainda mais baratas: 25% off.',
     discount: 25, endsAt: '2026-12-05T23:59:59-03:00', color: '#732F3B',
