@@ -1,0 +1,13 @@
+COOPER-GAMES - loja de jogos (site estatico para GitHub Pages)
+
+Arquivos na raiz do repositorio:
+  index.html  -> pagina principal
+  styles.css  -> visual
+  app.jsx     -> codigo React (home + loja + carrinho)
+  data.js     -> jogos e PROMOCOES (edite aqui para mudar precos/promos)
+  logo.png / favicon.png -> logo do site
+  capas/      -> imagens dos jogos
+
+Publicar: suba TUDO (inclusive a pasta capas) na raiz do repositorio ->
+Settings -> Pages -> Deploy from a branch -> main / (root).
+Testar local: dentro da pasta rode  npx serve   (nao abra o index.html com duplo clique).
