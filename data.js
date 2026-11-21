@@ -53,7 +53,7 @@ window.GAMES = [
 // Para encerrar uma promoção, mude "endsAt" ou apague o bloco.
 window.PROMOS = [
   { id: 'flash', name: 'Relâmpago 50%', tagline: 'Gigantes do Steam pela metade do preço. Só até segunda!',
-    discount: 50, endsAt: '2026-11-23T23:59:59-03:00', color: '#c1121f',
+    discount: 50, endsAt: '2026-11-24T23:59:59-03:00', color: '#c1121f',
     match: g => ['s6', 's27', 's37', 's40'].includes(g._id) },
   { id: 'bf', name: 'Esquenta Black Friday', tagline: 'RPGs e mundos épicos com 40% de desconto.',
     discount: 40, endsAt: '2026-11-30T23:59:59-03:00', color: '#73030D',
