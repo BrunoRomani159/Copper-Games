@@ -38,10 +38,6 @@ function Price({ g }) {
 
 function App() {
   const [games, setGames] = useState([]);
-  const [catalogGames, setCatalogGames] = useState([]);
-  const [interests, setInterests] = useState(() => {
-    try { return JSON.parse(localStorage.getItem('cooper-interests')) || []; } catch { return []; }
-  });
   const [genres, setGenres] = useState([]);
   const [q, setQ] = useState('');
   const [genre, setGenre] = useState('');
@@ -54,7 +50,6 @@ function App() {
   });
 
   useEffect(() => { fetch('/api/genres').then(r => r.json()).then(setGenres).catch(() => {}); }, []);
-  useEffect(() => { fetch('/api/games?sort=rating').then(r => r.json()).then(setCatalogGames).catch(() => {}); }, []);
   useEffect(() => {
     const t = setTimeout(() => {
       const p = new URLSearchParams({ q, genre, sort });
@@ -64,27 +59,16 @@ function App() {
     return () => clearTimeout(t);
   }, [q, genre, sort]);
   useEffect(() => localStorage.setItem('cart', JSON.stringify(cart)), [cart]);
-  useEffect(() => localStorage.setItem('cooper-interests', JSON.stringify(interests)), [interests]);
 
   const featured = useMemo(() => games.find(g => g.featured) || games[0], [games]);
   const total = cart.reduce((s, g) => s + final(g), 0);
-  const offers = useMemo(() => catalogGames.filter(g => g.discount > 0).sort((a, b) => b.discount - a.discount), [catalogGames]);
-  const recommendations = useMemo(() => {
-    const last = catalogGames.find(g => g._id === interests[0]);
-    if (!last) return catalogGames.filter(g => g.rating > 0).slice(0, 4);
-    return catalogGames.filter(g => g._id !== last._id).map(g => ({
-      game: g,
-      score: (g.genre === last.genre ? 3 : 0) + g.tags.filter(t => last.tags.includes(t)).length
-    })).sort((a, b) => b.score - a.score || b.game.rating - a.game.rating).slice(0, 4).map(x => x.game);
-  }, [catalogGames, interests]);
-  const showGame = (g) => { setOpen(g); setInterests(old => [g._id, ...old.filter(id => id !== g._id)].slice(0, 10)); };
   const add = (g) => setCart(c => c.some(x => x._id === g._id) ? c : [...c, g]);
   const inCart = (g) => cart.some(x => x._id === g._id);
 
   return (
     <>
       <header className="top">
-        <a className="brand" href="/" aria-label="Cooper Games - página inicial"><img src="/logo-cooper-games.png" alt="" /><span className="logo">Cooper Games</span></a>
+        <a className="logo" href="/">cobre</a>
         <input className="search" placeholder="Buscar jogos" value={q} onChange={e => setQ(e.target.value)} />
         <button className="cartbtn" onClick={() => setCartOpen(true)}>Carrinho ({cart.length})</button>
       </header>
@@ -99,7 +83,7 @@ function App() {
         <main>
           {error && <p className="error">{error}</p>}
           {featured && !q && !genre && (
-            <section className="hero" onClick={() => showGame(featured)}>
+            <section className="hero" onClick={() => setOpen(featured)}>
               <Art g={featured} img={wide(featured)} className="hero-art"><span>{featured.title}</span></Art>
               <div className="hero-info">
                 <h1>{featured.title}</h1>
@@ -108,30 +92,6 @@ function App() {
                 <Price g={featured} />
               </div>
             </section>
-          )}
-
-          {!q && !genre && (
-            <>
-              <section className="showcase">
-                <div className="showcase-heading"><div><h2>Ofertas do dia</h2><p>Jogos em promoção e descontos especiais.</p></div><span className="showcase-mark">PROMOÇÕES</span></div>
-                {offers.length ? <div className="game-cards">{offers.slice(0, 4).map(g => (
-                  <article className="game-card" key={g._id} onClick={() => showGame(g)}>
-                    <Art g={g} img={thumbImg(g)} className="game-card-art">{g.title.slice(0, 2)}</Art>
-                    <div className="game-card-info"><h3>{g.title}</h3><Price g={g} /></div>
-                  </article>
-                ))}</div> : <p className="empty">Novas ofertas estarão disponíveis em breve.</p>}
-              </section>
-
-              <section className="showcase recommendations">
-                <div className="showcase-heading"><div><h2>Recomendação de jogos</h2><p>{interests.length ? 'Sugestões baseadas nos jogos que você demonstrou interesse.' : 'Jogos bem avaliados que você pode gostar.'}</p></div><span className="showcase-mark">PARA VOCÊ</span></div>
-                <div className="game-cards">{recommendations.map(g => (
-                  <article className="game-card" key={g._id} onClick={() => showGame(g)}>
-                    <Art g={g} img={thumbImg(g)} className="game-card-art">{g.title.slice(0, 2)}</Art>
-                    <div className="game-card-info"><h3>{g.title}</h3><Price g={g} /></div>
-                  </article>
-                ))}</div>
-              </section>
-            </>
           )}
 
           <div className="bar">
@@ -146,7 +106,7 @@ function App() {
 
           <div className="list">
             {games.map(g => (
-              <article key={g._id} className="row" onClick={() => showGame(g)}>
+              <article key={g._id} className="row" onClick={() => setOpen(g)}>
                 <Art g={g} img={thumbImg(g)} className="thumb">{g.title.slice(0, 2)}</Art>
                 <div className="meta">
                   <h3>{g.title}</h3>
