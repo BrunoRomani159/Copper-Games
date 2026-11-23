@@ -207,12 +207,12 @@ function Home({ onOpen, onAdd, inCart }) {
       </section>
 
       <section className="finale">
-        <img className="finale-logo" src="logo.png" alt="cooper-games" />
+        <img className="finale-logo" src="logo.png" alt="copper-games" />
         <h2>Pronto para o próximo jogo?</h2>
         <p>Veja o catálogo completo, filtre por gênero e aproveite os descontos antes que acabem.</p>
         <a className="cta" href="#/loja">Entrar na loja →</a>
       </section>
-      <footer className="foot"><b className="foot-logo"><img src="logo.png" alt="" />cooper-games</b><span>Projeto TCC · Imagens pertencem aos respectivos detentores de direitos.</span></footer>
+      <footer className="foot"><b className="foot-logo"><img src="logo.png" alt="" />copper-games</b><span>Projeto TCC · Imagens pertencem aos respectivos detentores de direitos.</span></footer>
     </div>
   );
 }
@@ -258,7 +258,7 @@ function App() {
   return (
     <>
       <header className="top">
-        <a className="logo" href="#/"><img src="logo.png" alt="" />cooper-games</a>
+        <a className="logo" href="#/"><img src="logo.png" alt="" />copper-games</a>
         <nav className="topnav">
           <a href="#/" className={route === 'home' ? 'on' : ''}>Início</a>
           <a href="#/loja" className={route === 'loja' && !promo ? 'on' : ''}>Loja</a>
